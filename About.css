@@ -21,7 +21,7 @@ a {
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 nav {
@@ -31,6 +31,7 @@ nav {
   left: 0;
   background-color: #ffffff;
   z-index: 99;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .nav__content {
@@ -45,27 +46,39 @@ nav {
 nav .logo {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #eade33;
+  color: var(--primary-color-dark);
 }
 
 nav input {
   display: none;
 }
 
-ul {
+.checkbox {
+  display: none;
+}
+
+.checkbox i {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-dark);
+}
+
+.menu {
   display: flex;
   align-items: center;
   gap: 1rem;
-  list-style: none;
   transition: left 0.3s;
 }
 
-ul li a {
+.menu a {
   padding: 0.5rem 1rem;
   border: 2px solid transparent;
-  text-decoration: none;
   font-weight: 600;
-  color: black;
+  color: var(--text-dark);
+}
+
+.menu a:hover {
+  border-color: var(--primary-color-dark);
 }
 
 .section {
@@ -93,14 +106,14 @@ ul li a {
   line-height: 1.6;
 }
 
-.about__container ul {
+.about__container .skills,
+.about__container .technical-knowledge {
   margin-bottom: 20px;
-  list-style-type: none; /* Remove default list styles */
-  padding-left: 0; /* Remove left padding */
   text-align: center; /* Center align list items */
 }
 
-.about__container ul li {
+.about__container .skills div,
+.about__container .technical-knowledge div {
   margin-bottom: 10px;
   padding: 10px; /* Add padding for background */
   background-color: #f0f0f0; /* Light gray background */
@@ -109,11 +122,11 @@ ul li a {
 }
 
 @media (max-width: 750px) {
-  nav .checkbox {
+  .checkbox {
     display: block;
   }
 
-  ul {
+  .menu {
     position: absolute;
     width: 100%;
     height: calc(100vh - 85px);
@@ -125,11 +138,11 @@ ul li a {
     gap: 3rem;
   }
 
-  nav .checkbox:checked + ul {
+  input[type="checkbox"]:checked ~ .menu {
     left: 0;
   }
 
-  ul li a {
+  .menu a {
     font-size: 1.25rem;
   }
 
